@@ -1,0 +1,28 @@
+import json 
+from pathlib import Path 
+arquivo =  Path ("textos.json")
+def carregar():
+  if arquivo.existe():
+    return json.loads(arquivo.read_text(encoding="utf-8"))
+    return[]
+    def salvar(textos):
+      arquivo.write_text(
+          json.dumps(textos, ensure_ascii=false, encoding="utf-8"))
+      return []
+
+      def main():
+        textos = carregar()
+        menu = {"1":adicionar}
+        while true:
+          print("n1 adicionar texto n0 sair")
+          opcao = input("escolha: ").strip()
+          if opcao == "0":
+            break
+            acao = menu.get(opcao)
+            if acao:
+             acao(textos)
+            else:
+              print("opção invalida.")
+
+              if __name__ == "__main__":
+                main()
